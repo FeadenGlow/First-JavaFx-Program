@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="449.0" prefWidth="694.0" style="-fx-background-color: #0066ff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ShowController">
+    <children>
+        <AnchorPane layoutY="84.0" prefHeight="280.0" prefWidth="694.0" style="-fx-background-color: #fafafa;">
+         <children>
+            <Text fill="#3e61ff" layoutX="14.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Оберіть камінь" wrappingWidth="132.13671875">
+               <font>
+                  <Font name="Cambria" size="18.0" />
+               </font>
+            </Text>
+            <TextField fx:id="stoneWidth" layoutX="14.0" layoutY="53.0" prefHeight="35.0" prefWidth="245.0" style="-fx-border-color: #3e61ff;" />
+            <Text fill="#3e61ff" layoutX="14.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Введіть ширину(в метрах)" wrappingWidth="245.0">
+               <font>
+                  <Font name="Cambria" size="18.0" />
+               </font>
+            </Text>
+            <Text fill="#3e61ff" layoutX="389.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Введіть довжину(в метрах)" wrappingWidth="245.0">
+               <font>
+                  <Font name="Cambria" size="18.0" />
+               </font>
+            </Text>
+            <TextField fx:id="stoneHight" layoutX="389.0" layoutY="53.0" prefHeight="35.0" prefWidth="245.0" style="-fx-border-color: #3e61ff;" />
+            <Button fx:id="buttonNext" layoutX="389.0" layoutY="140.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="245.0" style="-fx-background-color: #fafafa; -fx-border-color: #3e61ff;" text="Далі" textFill="#3e61ff">
+               <font>
+                  <Font name="Cambria" size="20.0" />
+               </font>
+            </Button>
+            <ListView fx:id="stoneList" layoutX="14.0" layoutY="140.0" prefHeight="132.0" prefWidth="245.0" style="-fx-border-color: #3e61ff;" />
+         </children>
+        </AnchorPane>
+        <Text fill="WHITE" layoutX="143.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stone Pricer v1.0" wrappingWidth="408.0">
+            <font>
+                <Font name="Cambria" size="49.0" />
+            </font>
+        </Text>
+    </children>
+</AnchorPane>
