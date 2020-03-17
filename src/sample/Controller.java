@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import java.sql.*;
 
 public class Controller {
 
@@ -31,6 +32,8 @@ public class Controller {
     @FXML
     private Button buttonSkip;
 
+    Connection co;
+
     @FXML
     void initialize() {
         buttonSkip.setOnAction(actionEvent -> {
@@ -48,7 +51,36 @@ public class Controller {
             Parent root = loader.getRoot();
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
-            stage.showAndWait();
+            stage.show();
+        });
+
+
+        try{
+            Class.forName("org.sqlite.JDBC");
+            co = DriverManager.getConnection("jdbc:sqlite:stones.db");
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
+
+        buttonAddStone.setOnAction(actionEvent -> {
+            String sname = stoneName.getText();
+            int sprice = Integer.parseInt(stonePrice.getText());
+            String query = "INSERT INTO stones (name,price) "+"VALUES ('"+sname+"','"+sprice+"')";
+            try {
+                Statement statement = co.createStatement();
+                statement.executeUpdate(query);
+                statement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            try{
+                co.close();
+            }
+            catch (Exception e){
+                System.out.println(e.getMessage());
+            }
         });
     }
 }

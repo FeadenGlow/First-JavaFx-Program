@@ -28,12 +28,32 @@
                </font>
             </Text>
             <TextField fx:id="stoneHight" layoutX="389.0" layoutY="53.0" prefHeight="35.0" prefWidth="245.0" style="-fx-border-color: #3e61ff;" />
-            <Button fx:id="buttonNext" layoutX="389.0" layoutY="140.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="245.0" style="-fx-background-color: #fafafa; -fx-border-color: #3e61ff;" text="Далі" textFill="#3e61ff">
+            <Button fx:id="buttonNext" layoutX="389.0" layoutY="206.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="245.0" style="-fx-background-color: #fafafa; -fx-border-color: #3e61ff;" text="Вийти" textFill="#3e61ff">
                <font>
                   <Font name="Cambria" size="20.0" />
                </font>
             </Button>
             <ListView fx:id="stoneList" layoutX="14.0" layoutY="140.0" prefHeight="132.0" prefWidth="245.0" style="-fx-border-color: #3e61ff;" />
+            <Button fx:id="buttonCalculate" layoutX="389.0" layoutY="120.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="245.0" style="-fx-background-color: #fafafa; -fx-border-color: #3e61ff;" text="Обрахувати" textFill="#3e61ff">
+               <font>
+                  <Font name="Cambria" size="20.0" />
+               </font>
+            </Button>
+            <Text fill="#3e61ff" layoutX="278.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Це буде коштувати: " wrappingWidth="166.13671875">
+               <font>
+                  <Font name="Cambria" size="18.0" />
+               </font>
+            </Text>
+            <Text fx:id="stonePrice" fill="#3e61ff" layoutX="444.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Тут буде ціна)" wrappingWidth="166.13671875">
+               <font>
+                  <Font name="Cambria" size="18.0" />
+               </font>
+            </Text>
+            <Text fill="#3e61ff" layoutX="610.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$" wrappingWidth="15.13671875">
+               <font>
+                  <Font name="Cambria" size="18.0" />
+               </font>
+            </Text>
          </children>
         </AnchorPane>
         <Text fill="WHITE" layoutX="143.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stone Pricer v1.0" wrappingWidth="408.0">
