@@ -32,7 +32,18 @@ public class Controller {
     @FXML
     private Button buttonSkip;
 
+    @FXML
+    private TextField torcPrice;
+
+    @FXML
+    private TextField torcName;
+
+    @FXML
+    private Button buttonAddTorc;
+
     Connection co;
+
+    Connection co2;
 
     @FXML
     void initialize() {
@@ -58,6 +69,7 @@ public class Controller {
         try{
             Class.forName("org.sqlite.JDBC");
             co = DriverManager.getConnection("jdbc:sqlite:stones.db");
+            co2 = DriverManager.getConnection("jdbc:sqlite:torces.db");
         }
         catch (Exception e){
             System.out.println(e.getMessage());
@@ -82,5 +94,25 @@ public class Controller {
                 System.out.println(e.getMessage());
             }
         });
+
+        buttonAddTorc.setOnAction(actionEvent -> {
+            String tname = torcName.getText();
+            int tprice = Integer.parseInt(torcPrice.getText());
+            String query = "INSERT INTO torces (name,price) "+"VALUES ('"+tname+"','"+tprice+"')";
+            try {
+                Statement statement = co2.createStatement();
+                statement.executeUpdate(query);
+                statement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            try{
+                co2.close();
+            }
+            catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+        });
+
     }
 }

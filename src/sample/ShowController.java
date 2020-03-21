@@ -45,17 +45,38 @@ public class ShowController {
     @FXML
     private Text stonePrice;
 
+    @FXML
+    private TextField stoneHowMany;
+
+    @FXML
+    private Text obkantPrice;
+
+    @FXML
+    private Text torcPrice;
+
+    @FXML
+    private ListView<?> torcList;
+
     Connection co;
+
+    Connection co2;
 
     ListView listView;
 
+    ListView listView2;
+
     int p1;
+
+    int price;
+
+    int finaleobkant;
 
     @FXML
     void initialize() {
         try{
             Class.forName("org.sqlite.JDBC");
             co = DriverManager.getConnection("jdbc:sqlite:stones.db");
+            co2 = DriverManager.getConnection("jdbc:sqlite:torces.db");
         }
         catch (Exception e){
             System.out.println(e.getMessage());
@@ -67,9 +88,7 @@ public class ShowController {
             ResultSet rs = statement.executeQuery(query);
             listView = stoneList;
             while(rs.next()){
-                int id = rs.getInt("id");
                 String sname = rs.getString("name");
-                int sprice = rs.getInt("price");
                 listView.getItems().add(sname);
             }
             rs.close();
@@ -79,6 +98,21 @@ public class ShowController {
             System.out.println(e.getMessage());
         }
 
+        try{
+            Statement statement2 = co2.createStatement();
+            String query2 = "SELECT id, name, price FROM torces;";
+            ResultSet rs2 = statement2.executeQuery(query2);
+            listView2 = torcList;
+            while(rs2.next()){
+                String tname = rs2.getString("name");
+                listView2.getItems().add(tname);
+            }
+            rs2.close();
+            statement2.close();
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
 
         buttonNext.setOnAction(actionEvent -> {
             buttonNext.getScene().getWindow().hide();
@@ -87,23 +121,44 @@ public class ShowController {
         buttonCalculate.setOnAction(actionEvent -> {
             try {
                 Statement statement = co.createStatement();
+                Statement statement2 = co2.createStatement();
                 String query = "SELECT id, name, price FROM stones;";
+                String query2 = "SELECT id, name, price FROM torces;";
                 ResultSet rs = statement.executeQuery(query);
+                ResultSet rs2 = statement2.executeQuery(query2);
                 listView = stoneList;
+                listView2 = torcList;
                 while (rs.next()) {
-                    int id = rs.getInt("id");
                     String sname = rs.getString("name");
                     int sprice = rs.getInt("price");
                     if (listView.getSelectionModel().getSelectedItem().equals(sname)) {
                         int a;
                         int b;
                         int c;
+                        int d;
                         int p;
+                        int obkant;
+                        int obkantP;
                         a = Integer.parseInt(stoneWidth.getText());
                         b = Integer.parseInt(stoneHight.getText());
+                        d = Integer.parseInt(stoneHowMany.getText());
                         c = a*b;
-                        p = c * sprice;
-                        stonePrice.setText(Integer.toString(p));
+                        obkant = (a+b) * d;
+                        obkantP = (int) (obkant * 3.5);
+                        obkantPrice.setText(Integer.toString(obkantP));
+                        p = (c * d)*sprice;
+                        setter(obkant,p,obkantP);
+                        //stonePrice.setText(Integer.toString(p));
+                    }
+                }
+                while(rs2.next()){
+                    String tname = rs2.getString("name");
+                    int tprice = rs2.getInt("price");
+                    if(listView2.getSelectionModel().getSelectedItem().equals(tname)) {
+                        int tprisef = p1 * tprice;
+                        torcPrice.setText(Integer.toString(tprisef));
+                        int finaleprice = price + finaleobkant + tprisef;
+                        stonePrice.setText(Integer.toString(finaleprice));
                     }
                 }
             }
@@ -111,5 +166,10 @@ public class ShowController {
                 System.out.println(e.getMessage());
             }
         });
+    }
+    void setter(int obkant, int price, int finaleobkant){
+        p1 = obkant;
+        this.price = price;
+        this.finaleobkant = finaleobkant;
     }
 }

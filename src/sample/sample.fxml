@@ -10,27 +10,52 @@
    <children>
       <AnchorPane layoutY="84.0" prefHeight="280.0" prefWidth="694.0" style="-fx-background-color: #fafafa;">
          <children>
-            <TextField fx:id="stoneName" layoutX="52.0" layoutY="171.0" prefHeight="39.0" prefWidth="220.0" style="-fx-border-color: #3e61ff;">
+            <TextField fx:id="stoneName" layoutX="53.0" layoutY="102.0" prefHeight="39.0" prefWidth="220.0" style="-fx-border-color: #3e61ff;">
                <font>
                   <Font name="Cambria" size="14.0" />
                </font>
             </TextField>
-            <TextField fx:id="stonePrice" layoutX="418.0" layoutY="171.0" prefHeight="39.0" prefWidth="220.0" style="-fx-border-color: #3e61ff;">
+            <TextField fx:id="stonePrice" layoutX="418.0" layoutY="102.0" prefHeight="39.0" prefWidth="220.0" style="-fx-border-color: #3e61ff;">
                <font>
                   <Font name="Cambria" size="14.0" />
                </font>
             </TextField>
-            <Text fill="#3e61ff" layoutX="210.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Введіть данні каменю:" wrappingWidth="274.0">
+            <Text fill="#3e61ff" layoutX="210.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Введіть данні каменю:" wrappingWidth="274.0">
                <font>
                   <Font name="Cambria" size="25.0" />
                </font>
             </Text>
-            <Text fill="#3e61ff" layoutX="52.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Назва каменю(з товщиною)" wrappingWidth="235.0">
+            <Text fill="#3e61ff" layoutX="45.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Назва каменю(з товщиною)" wrappingWidth="235.0">
                <font>
                   <Font name="Cambria" size="16.0" />
                </font>
             </Text>
-            <Text fill="#3e61ff" layoutX="418.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ціна каменю" wrappingWidth="274.0">
+            <Text fill="#3e61ff" layoutX="418.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ціна каменю" wrappingWidth="274.0">
+               <font>
+                  <Font name="Cambria" size="16.0" />
+               </font>
+            </Text>
+            <Text fill="#3e61ff" layoutX="210.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Введіть данні торця:" wrappingWidth="274.0">
+               <font>
+                  <Font name="Cambria" size="25.0" />
+               </font>
+            </Text>
+            <TextField fx:id="torcPrice" layoutX="418.0" layoutY="210.0" prefHeight="39.0" prefWidth="220.0" style="-fx-border-color: #3e61ff;">
+               <font>
+                  <Font name="Cambria" size="14.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="torcName" layoutX="53.0" layoutY="210.0" prefHeight="39.0" prefWidth="220.0" style="-fx-border-color: #3e61ff;">
+               <font>
+                  <Font name="Cambria" size="14.0" />
+               </font>
+            </TextField>
+            <Text fill="#3e61ff" layoutX="45.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Назва торця" wrappingWidth="274.0">
+               <font>
+                  <Font name="Cambria" size="16.0" />
+               </font>
+            </Text>
+            <Text fill="#3e61ff" layoutX="418.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Ціна торця ( 1 м\п )" wrappingWidth="274.0">
                <font>
                   <Font name="Cambria" size="16.0" />
                </font>
@@ -42,14 +67,19 @@
             <Font name="Cambria" size="49.0" />
          </font>
       </Text>
-      <Button fx:id="buttonAddStone" layoutX="48.0" layoutY="384.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="220.0" style="-fx-border-color: #3e61ff; -fx-background-color: #fafafa;" text="Додати камінь" textFill="#3e61ff">
+      <Button fx:id="buttonAddStone" layoutX="48.0" layoutY="384.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="139.0" style="-fx-border-color: #3e61ff; -fx-background-color: #fafafa;" text="Додати камінь" textFill="#3e61ff">
          <font>
-            <Font name="Cambria" size="20.0" />
+            <Font name="Cambria" size="15.0" />
          </font>
       </Button>
       <Button fx:id="buttonSkip" layoutX="417.0" layoutY="384.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="220.0" style="-fx-border-color: #3e61ff; -fx-background-color: #fafafa;" text="Далі" textFill="#3e61ff">
          <font>
             <Font name="Cambria" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttonAddTorc" layoutX="208.0" layoutY="384.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="139.0" style="-fx-border-color: #3e61ff; -fx-background-color: #fafafa;" text="Додати торець" textFill="#3e61ff">
+         <font>
+            <Font name="Cambria" size="15.0" />
          </font>
       </Button>
    </children>
